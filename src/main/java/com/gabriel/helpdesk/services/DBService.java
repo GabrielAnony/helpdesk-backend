@@ -33,10 +33,10 @@ public class DBService {
 
 	public void iniciaDB() {
 		Tecnico tec1 = new Tecnico(null, "Gabriel Lima", "02433325270", "gabriel@gmail.com", "123");
-		tec1.addPerfil(Perfil.ADMIN);
+		tec1.setPerfil(Perfil.ADMIN);
 		
 		Cliente cli1 = new Cliente(null, "Jack Daniels", "54962303066", "jackd@gamil.com", "123");
-		cli1.addPerfil(Perfil.CLIENTE);
+		cli1.setPerfil(Perfil.CLIENTE);
 		
 		Chamado task1 = new Chamado(null, Prioridade.BAIXA, Status.ABERTO, "Chamado 01", "primeiro chamado", tec1, cli1);
 		

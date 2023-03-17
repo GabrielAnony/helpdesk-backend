@@ -14,54 +14,58 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gabriel.helpdesk.domain.enums.Prioridade;
 import com.gabriel.helpdesk.domain.enums.Status;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(of = { "id" })
 @Entity
 public class Chamado implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@NonNull
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataAbertura = LocalDate.now();
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataAbertura = LocalDate.now();
 
-	@JsonFormat(pattern = "dd/MM/yyyy")
-	private LocalDate dataFechamento;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataFechamento;
 
-	@NonNull
-	private Prioridade prioridade;
+    private Prioridade prioridade;
 
-	@NonNull
-	private Status status;
+    private Status status;
 
-	@NonNull
-	private String titulo;
+    private String titulo;
 
-	@NonNull
-	private String observacao;
+    private String observacao;
 
-	@NonNull
-	@ManyToOne
-	@JoinColumn(name = "tecnico_id")
-	private Tecnico tecnico;
+    @ManyToOne
+    @JoinColumn(name = "tecnico_id")
+    private Tecnico tecnico;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
-	@NonNull
-	@ManyToOne
-	@JoinColumn(name = "cliente_id")
-	private Cliente cliente;
+	public Chamado(Integer id, Prioridade prioridade, Status status, String titulo, String observacao, Tecnico tecnico,
+			Cliente cliente) {
+		super();
+		this.id = id;
+		this.prioridade = prioridade;
+		this.status = status;
+		this.titulo = titulo;
+		this.observacao = observacao;
+		this.tecnico = tecnico;
+		this.cliente = cliente;
+	}
+
+    
+    
 }

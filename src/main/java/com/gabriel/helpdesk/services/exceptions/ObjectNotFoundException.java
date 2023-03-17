@@ -1,4 +1,4 @@
-package com.gabriel.helpdesk.exceptions;
+package com.gabriel.helpdesk.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException{
 

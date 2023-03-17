@@ -1,4 +1,4 @@
-package com.gabriel.helpdesk.resource;
+package com.gabriel.helpdesk.resources;
 
 import java.net.URI;
 import java.util.List;

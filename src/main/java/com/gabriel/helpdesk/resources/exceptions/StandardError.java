@@ -1,4 +1,4 @@
-package com.gabriel.helpdesk.exceptions;
+package com.gabriel.helpdesk.resources.exceptions;
 
 import java.io.Serializable;
 

@@ -12,11 +12,10 @@ import com.gabriel.helpdesk.services.DBService;
 public class TestConfig {
 
 	@Autowired
-	private DBService dbservice;
+	private DBService dbService;
 	
 	@Bean
-	public void iniciaDB() {
-		this.dbservice.iniciaDB();
+	public void instanciaDB() {
+		this.dbService.instanciaDB();
 	}
-
 }

@@ -16,7 +16,7 @@ import com.gabriel.helpdesk.domain.dtos.ChamadoDTO;
 import com.gabriel.helpdesk.domain.enums.Prioridade;
 import com.gabriel.helpdesk.domain.enums.Status;
 import com.gabriel.helpdesk.repositories.ChamadoRepository;
-import com.gabriel.helpdesk.services.exceptions.ObjectNotFoundException;
+import com.gabriel.helpdesk.services.exceptions.ObjectnotFoundException;
 
 @Service
 public class ChamadoService {
@@ -30,7 +30,7 @@ public class ChamadoService {
 
 	public Chamado findById(Integer id) {
 		Optional<Chamado> obj = repository.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! ID: " + id));
+		return obj.orElseThrow(() -> new ObjectnotFoundException("Objeto não encontrado! ID: " + id));
 	}
 
 	public List<Chamado> findAll() {
@@ -51,23 +51,39 @@ public class ChamadoService {
 	private Chamado newChamado(ChamadoDTO obj) {
 		Tecnico tecnico = tecnicoService.findById(obj.getTecnico());
 		Cliente cliente = clienteService.findById(obj.getCliente());
-
+		
 		Chamado chamado = new Chamado();
-		if (obj.getId() != null) {
+		if(obj.getId() != null) {
 			chamado.setId(obj.getId());
 		}
-
-		if (obj.getStatus().equals(2)) {
+		
+		if(obj.getStatus().equals(2)) {
 			chamado.setDataFechamento(LocalDate.now());
 		}
-
+		
 		chamado.setTecnico(tecnico);
 		chamado.setCliente(cliente);
 		chamado.setPrioridade(Prioridade.toEnum(obj.getPrioridade()));
 		chamado.setStatus(Status.toEnum(obj.getStatus()));
 		chamado.setTitulo(obj.getTitulo());
-		chamado.setObservacao(obj.getObservacao());
+		chamado.setObservacoes(obj.getObservacoes());
 		return chamado;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

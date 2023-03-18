@@ -1,6 +1,5 @@
 package com.gabriel.helpdesk.domain;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,14 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gabriel.helpdesk.domain.dtos.ClienteDTO;
 import com.gabriel.helpdesk.domain.enums.Perfil;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 @Entity
-public class Cliente extends Pessoa implements Serializable {
-
+public class Cliente extends Pessoa {
 	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
@@ -28,12 +21,12 @@ public class Cliente extends Pessoa implements Serializable {
 
 	public Cliente() {
 		super();
-		setPerfil(Perfil.CLIENTE);
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public Cliente(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
-		setPerfil(Perfil.CLIENTE);
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public Cliente(ClienteDTO obj) {
@@ -45,9 +38,14 @@ public class Cliente extends Pessoa implements Serializable {
 		this.senha = obj.getSenha();
 		this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = obj.getDataCriacao();
-		setPerfil(Perfil.CLIENTE);
 	}
-	
-	
-	
+
+	public List<Chamado> getChamados() {
+		return chamados;
+	}
+
+	public void setChamados(List<Chamado> chamados) {
+		this.chamados = chamados;
+	}
+
 }

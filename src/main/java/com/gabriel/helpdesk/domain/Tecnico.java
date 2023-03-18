@@ -11,14 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gabriel.helpdesk.domain.dtos.TecnicoDTO;
 import com.gabriel.helpdesk.domain.enums.Perfil;
 
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
-@Getter
-@Setter
 public class Tecnico extends Pessoa {
-
 	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
@@ -27,12 +21,12 @@ public class Tecnico extends Pessoa {
 
 	public Tecnico() {
 		super();
-		setPerfil(Perfil.TECNICO);
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public Tecnico(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
-		setPerfil(Perfil.TECNICO);
+		addPerfil(Perfil.CLIENTE);
 	}
 	
 	public Tecnico(TecnicoDTO obj) {
@@ -44,7 +38,14 @@ public class Tecnico extends Pessoa {
 		this.senha = obj.getSenha();
 		this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = obj.getDataCriacao();
-		setPerfil(Perfil.CLIENTE);
+	}
+
+	public List<Chamado> getChamados() {
+		return chamados;
+	}
+
+	public void setChamados(List<Chamado> chamados) {
+		this.chamados = chamados;
 	}
 
 }

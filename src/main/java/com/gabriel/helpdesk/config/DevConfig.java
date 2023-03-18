@@ -13,17 +13,16 @@ import com.gabriel.helpdesk.services.DBService;
 public class DevConfig {
 
 	@Autowired
-	private DBService dbservice;
-
+	private DBService dbService;
+	
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String value;
-
+	
 	@Bean
-	public boolean iniciaDB() {
-		if (value.equals("create")) {
-			this.dbservice.iniciaDB();
+	public boolean instanciaDB() {
+		if(value.equals("create")) {
+			this.dbService.instanciaDB();
 		}
 		return false;
 	}
-
 }

@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gabriel.helpdesk.domain.dto.TecnicoDTO;
+import com.gabriel.helpdesk.domain.dtos.TecnicoDTO;
 import com.gabriel.helpdesk.domain.enums.Perfil;
 
 import lombok.Getter;

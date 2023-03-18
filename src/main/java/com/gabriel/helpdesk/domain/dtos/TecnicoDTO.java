@@ -1,4 +1,4 @@
-package com.gabriel.helpdesk.domain.dto;
+package com.gabriel.helpdesk.domain.dtos;
 
 import java.io.Serializable;
 import java.time.LocalDate;

@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gabriel.helpdesk.domain.dto.ClienteDTO;
+import com.gabriel.helpdesk.domain.dtos.ClienteDTO;
 import com.gabriel.helpdesk.domain.enums.Perfil;
 
 import lombok.Getter;

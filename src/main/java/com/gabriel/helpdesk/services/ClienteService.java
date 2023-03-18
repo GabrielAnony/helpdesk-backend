@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.gabriel.helpdesk.domain.Cliente;
 import com.gabriel.helpdesk.domain.Pessoa;
-import com.gabriel.helpdesk.domain.dto.ClienteDTO;
+import com.gabriel.helpdesk.domain.dtos.ClienteDTO;
 import com.gabriel.helpdesk.repositories.ClienteRepository;
 import com.gabriel.helpdesk.repositories.PessoaRepository;
 import com.gabriel.helpdesk.services.exceptions.DataIntegrityViolationException;

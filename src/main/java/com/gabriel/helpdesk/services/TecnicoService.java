@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.gabriel.helpdesk.domain.Pessoa;
 import com.gabriel.helpdesk.domain.Tecnico;
-import com.gabriel.helpdesk.domain.dto.TecnicoDTO;
+import com.gabriel.helpdesk.domain.dtos.TecnicoDTO;
 import com.gabriel.helpdesk.repositories.PessoaRepository;
 import com.gabriel.helpdesk.repositories.TecnicoRepository;
 import com.gabriel.helpdesk.services.exceptions.DataIntegrityViolationException;
